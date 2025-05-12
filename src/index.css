@@ -1,0 +1,478 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  height: 100%;
+}
+
+body {
+  margin: 0px;
+  padding: 0px; 
+  overflow-x: hidden;
+}
+
+html {
+  margin: 0px;
+  padding: 0px;
+}
+
+h5 {
+  font-size: 20px;
+}
+
+.app {
+  transition: background-color 0.3s ease, color 0.3s ease;
+  padding: 0px;
+  margin: 0px;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  height: 100vh;
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+.main-container {
+  max-width: 900px;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+@media (max-width: 800px) {
+  .main-container {
+    padding: 0px 0px;
+  }
+  .nav {
+    overflow-x: hidden;
+  }
+}
+
+.app.dark {
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #181818;
+  --task-container: #cfcfcf;
+  --background-color: #242424;
+  --pink: rgba(144, 36, 194, 0.445);
+  --blue: rgba(0, 153, 255, 0.363);
+  --green: rgba(51, 255, 0, 0.363);
+  --yellow: rgba(255, 187, 0, 0.363);
+  --text-color: white;
+  --accent-text-color: rgb(190, 190, 190);
+  --soft-back-color: #1e1e1e;
+  --clean-back-color: #121212;
+  --warmth-back-color: #2c2c2e;
+
+}
+
+.app.light {
+  background-color: #242424;
+  color: #242424;
+  --task-container: rgb(44, 44, 44);
+  --background-color: rgb(255, 255, 255);
+  --pink: rgb(127, 12, 143);
+  --blue: rgba(7, 81, 190, 0.973);
+  --green: rgba(7, 190, 16, 0.973);
+  --yellow: rgba(190, 156, 7, 0.973);
+  --text-color: black;
+  --accent-text-color: rgb(66, 66, 66);
+  --soft-back-color: #c9c9c9;
+  --clean-back-color: #ffffff;
+  --warmth-back-color: #bedaf5;
+  
+}
+
+.app.light .main-container{
+  background-color: rgb(255, 255, 255);
+  color: #242424;
+}
+
+.app.dark .main-container{
+  background-color: rgba(27, 27, 27, 0.87);
+}
+
+a {
+  font-weight: bold;
+  color: #016af5;
+  text-decoration: inherit;
+  cursor: pointer;
+}
+a:hover {
+  color: #535bf2;
+}
+
+.nav-topic {
+  font-weight: bold;
+
+}
+
+.theme-toggle {
+  padding: 5px 15px;
+  border: 2px solid rgb(166, 194, 255);
+  border-radius: 50%;
+  width: 40px;
+  padding: 0px;
+  height: 40px;
+  cursor: pointer;
+  background-color: #24242400;
+  color: var(--text-color);
+  transition: 0.3s;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.09);
+}
+
+.setting-button {
+  background-color: transparent;
+  border: none;
+  right: 100px;
+  padding: 0px;
+  height: 40px;
+  width: 40px;
+  border: 2px solid rgb(166, 194, 255);
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.setting-button:hover {
+  transform: rotate(40deg);
+}
+
+.setting-box {
+  width: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border: 3px solid var(--pink);
+  border-radius: 20px;
+  z-index: 200000;
+  animation: popUp 0.3s forwards ease-in-out;
+  transition: all 0.3s;
+  padding: 20px;
+}
+
+@media (max-width: 600px) {
+  .setting-box {
+    height: 580px;
+    width: 90%;
+  }
+}
+
+.setting-box h6{
+  color: var(--accent-text-color);
+  font-weight: 400;
+}
+
+.setting-box label{
+  margin-left: 10px;
+}
+
+.setting-box input{
+  margin-right: 5px;
+}
+
+.setting-box select{
+  margin-left: 8px;
+  border-radius: 10px;
+  background-color: var(--text-color);
+  color: var(--background-color);
+  padding: 0px 10px;
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
+}
+
+.setting-box select:focus {
+  outline: none;
+}
+
+.setting-box option{
+  background-color: rgb(4, 71, 172);
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.setting-box button{
+  border-radius: 10px;
+  background-color: var(--text-color);
+  color: var(--background-color);
+  padding: 0px 10px;
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
+}
+
+.setting-box button:hover{
+  border-radius: 10px;
+  background-color: rgb(4, 94, 228);
+  color: var(--background-color);
+  padding: 0px 10px;
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+button#okay-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: rgb(0, 102, 255);
+  color: white;
+  border-radius: 5px;
+  font-size: 19px;
+  transition: 0.3s;
+}
+
+button#okay-button:hover {
+  background-color: rgb(3, 77, 216);
+}
+
+@keyframes popUp {
+  0% {
+    opacity: 0;
+  }
+  50%{
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.close-button {
+  position: absolute;
+  right: 20px;
+  top: 18px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  transition: 0.3s;
+  color: var(--text-color);
+}
+
+.close-button:hover {
+  transform: scale(1.2);
+}
+
+.input-area h1 {
+  font-size: 24px;
+  font-family: Poppins;
+}
+
+input#input-areas {
+  font-size: 18px;
+  padding: 9px;
+  background-color: var(--task-container, rgb(63, 63, 63));
+  color: rgb(59, 59, 59);
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  min-width: 520px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+}
+
+input#input-areas:focus {
+  outline: none;
+  background-color: rgb(189, 189, 189);
+}
+
+button#adding-button {
+  font-size: 18px;
+  padding: 9px 13px;
+  background-color: green;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  color: white;
+}
+button#adding-button:hover {
+  background-color: rgb(3, 85, 3);
+  color: rgb(255, 255, 255);
+}
+
+div#msg-compo {
+  display: flex;
+  justify-content: space-between;
+  min-height: 60px;
+  height: 100%;
+  max-height: 200px;
+  border-radius : 12px;
+  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.582);
+  text-align: cneter;
+  margin: 0px 0px;
+  font-size: 20px;
+  max-width: 600px;
+  width: 100%;
+  position: relative;
+  transition: 0.3s;
+}
+
+ div#msg-compo h4{
+    width: 70%;
+    text-align: left;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+div#msg-compo:hover {
+  transform: scale(1.02);
+}
+
+button {
+  font-size: 15px;
+  padding: 3px 10px;
+  border: 2px solid rgb(61, 61, 61);
+  border-radius: 5px;
+  transition: 0.1s;
+  cursor: pointer;
+  color : white;
+  display: flex;
+  justify-content: center;
+  place-items: center;
+}
+
+div#msg-compo button {
+  width: 32px;
+  height: 32px;
+  border: none;
+  transition: background-color 0.3s;
+}
+
+.icons {
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+}
+
+  .tasks-back-container {
+    width: 100%;
+    justify-content: center;
+  }
+
+  @media (min-width: 1000px) {
+    .tasks-back-container {
+      width: 80%;
+    }
+  }
+
+  @media (max-width: 650px) {
+    .tasks-back-container {
+      justify-content: flex-start;
+      overflow-y: auto;
+      overflow-x: hidden;
+      max-height: 450px;
+      width: 99%;
+    }
+    .tasks-back-container::-webkit-scrollbar {
+      background-color: #0956ca;
+      border-radius: 20px;
+      width: 8px;
+      position: absolute;
+    }
+    .tasks-back-container::-webkit-scrollbar-thumb {
+      background-color: #93b9f3;
+      border-radius: 20px;
+      width: 8px;
+      position: absolute;
+    }
+  }
+
+@media (max-width: 800px) {
+  .books-adding-bar {
+    width: 200px;
+  }
+
+  .book-adding-button {
+    width: 170px;
+  }
+  input#input-areas {
+    min-width: 320px;
+    width: 100%;
+  }
+  div#msg-compo h4{
+    font-size: 17px;
+  }
+}
+
+button#delete-button {
+  background-color: red; 
+  height: 35px;
+}
+button#delete-button:hover {
+  background-color: rgb(133, 4, 4);
+}
+
+button#moving-button {
+  background-color: #3498db;
+}
+button#moving-button:hover {
+  background-color: rgb(9, 108, 255);
+}
+
+h6#box-paragraph {
+  font-size: 18px;
+  margin: 0px 3px;
+  color: rgb(255, 255, 255);
+}
+
+input#flexCheckDefault {
+  width: 20px;
+  height: 20px;
+  margin: 0px;
+  border: 2px solid rgb(1, 1, 66);
+  color: #0956ca;
+  cursor: pointer;
+}
+
+.footer-section {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 50px;
+  align-items: center;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+@media (max-width: 650px) {
+  .footer-section {
+  position: absolute;
+  right: 0px;
+  align-items: flex-start;
+  bottom: 50px;
+}
+}
+
+.vertical-line {
+  width: 2px;
+  height: 20px;
+  background-color: var(--accent-text-color);
+}
+
+.privacy-box {
+  position: absolute;
+  bottom: 50px;
+  width: 500px;
+  padding: 10px;
+  background-color: var(--background-color);
+  border: 2px solid #016af5;
+  border-radius: 10px;
+  animation: popUp 0.3s forwards ease-in-out;
+}
+
+@media (max-width: 650px) {
+  .privacy-box {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+}
+}
+
+.privacy-box button{
+  background-color: green;
+}
