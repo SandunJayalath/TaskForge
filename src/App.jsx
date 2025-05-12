@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { createRoot } from 'react-dom/client'
 
@@ -8,7 +7,7 @@ import { createRoot } from 'react-dom/client'
 import Home from "./pages/Home"
 
 createRoot(document.getElementById('root')).render (
-  <BrowserRouter>
+  <BrowserRouter basename="/TaskForge">
   <Routes>
     <Route path="/" element={<Home/>}/>
   </Routes>

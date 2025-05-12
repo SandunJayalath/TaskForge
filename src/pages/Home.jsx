@@ -99,7 +99,7 @@ function Home() {
                     <button className="theme-toggle" onClick={() => setIsDarkMode(!isDarkMode)}>{isDarkMode ? <CloudSun/> : <MoonStar/>}</button>
                 </div>
                 { isSettingBoxOpen && (
-                    <div className='setting-box'>
+                    <div className='setting-box' style={{maxWidth: "500px", width: "90%"}}>
                         <X className='close-button' onClick={() => setIsSettingBoxOpen(false)}/>
                        
                         <h5>Settings</h5>
