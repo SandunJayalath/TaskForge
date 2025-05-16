@@ -86,6 +86,22 @@ function Home() {
     // Privacy Box
     const [isPrivacyBox, setIsPrivacyBox] = useState(false);
 
+    // Creating the Exporting thing works
+    const exportToFile = (filename = "tasks.txt", type = "text/plain") => {
+    const blob = new Blob([tasks.join("\n")], { type });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = filename;
+
+    document.body.appendChild(link);
+    link.click();
+
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
+
     return (
         <>
         <div className={`app ${isDarkMode ? 'dark' : 'light'} d-flex justify-content-center`} style={{fontSize, fontFamily}}>
@@ -99,7 +115,7 @@ function Home() {
                     <button className="theme-toggle" onClick={() => setIsDarkMode(!isDarkMode)}>{isDarkMode ? <CloudSun/> : <MoonStar/>}</button>
                 </div>
                 { isSettingBoxOpen && (
-                    <div className='setting-box' style={{maxWidth: "500px", width: "90%"}}>
+                    <div className='setting-box'>
                         <X className='close-button' onClick={() => setIsSettingBoxOpen(false)}/>
                        
                         <h5>Settings</h5>
@@ -149,7 +165,7 @@ function Home() {
                             <a href="#input-areas">
                                 <button onClick={() => setIsSettingBoxOpen(false)}>Add Tasks</button>
                             </a>
-                            <button>Export Tasks</button>
+                            <button onClick={() => exportToFile("tasks.txt")}>Export Tasks</button>
                         </div>
                         <button id='okay-button' onClick={() => setIsSettingBoxOpen(false)}>Okay</button>
                     </div>
