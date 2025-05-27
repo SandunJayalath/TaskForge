@@ -216,9 +216,13 @@ function Home() {
                 <h5>Task Manager App v1.0.0</h5>
                 <h6>Created by Sandun</h6>
                 <div className="d-flex gap-2 fs-6">
-                    <a href="">GitHub</a>
+                    <a href="https://github.com/SandunJayalath/" target='_blank'>
+                        GitHub
+                    </a>
                     <div className="vertical-line"></div>
-                    <a href="">Portfolio</a>
+                    <a href="https://sandunjayalath.github.io/SandunPortfolio/" target='_blank'>
+                        Portfolio
+                    </a>
                     <div className="vertical-line"></div>
                     <a className='policy-text' onClick={() => setIsPrivacyBox(true)}>Privacy Policy</a>
                     { isPrivacyBox && (
